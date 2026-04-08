@@ -13,7 +13,15 @@ public class Digits {
      */
     public Digits(int num) {
         /* To be implemented in part (a) */
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        
+        digits = new ArrayList<Integer>();
+        digits.add(num%10);
+        num = num/10;
+        while (num > 0) {
+            digits.add(0,num%10);
+            num = num/10;
+        }
     }
 
     /** Returns `true` if the digits in this `Digits` object are in strictly increasing order;
@@ -21,6 +29,13 @@ public class Digits {
      */
     public boolean isStrictlyIncreasing() {
         /* To be implemented in part (b) */
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+
+        for (int i = 1; i < digits.size(); i++) {
+            if (digits.get(i) <= digits.get(i-1)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
